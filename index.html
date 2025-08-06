@@ -1,263 +1,191 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Тест CSS</title>
+  <title>BUTTONS</title>
   <style>
     body {
       background: #000;
       color: #fff;
-      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      font-family: monospace;
       margin: 0;
       padding: 0;
-      height: 100vh;
     }
+* {
+  box-sizing: border-box;
+}
 
     #buttons-wrapper {
       display: flex;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      padding: 0 1px;
-      max-width: 1550px;
-      margin: 1px auto 0;
-      flex: 1;
+      flex-wrap: wrap;      
+      gap: 2px;
+justify-content: space-between;
+      max-width: 1200px;I 
+      margin: 2px auto;
+      
     }
 
-    .column {
-      display: flex;
-      flex-direction: column;
-      gap: 5px;
-    }
-
-    .column button {
-      width: 140px;
-      height: 60px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      font-size: 13px;
-      cursor: pointer;
-      border: 1px solid #ccc;
-      background: #000;
-      color: #efefef;
-      border-radius: 4px;
-      text-align: center;
-      padding: 0;
-    }
-
-    #current {
+ #buttons-wrapper button {
+  width: 140px;              /* ✅ фиксированная ширина */
+  height: 65px;
+  flex-shrink: 0;            /* 🔒 запрещаем сужение */
+  font-size: 14px;
+  cursor: pointer;
+  border: 1px solid #ccc;
+  background: #111;
+  color: #ccc;
+  border-radius: 4px;
+  text-align: center;
+}
+#current {
       margin-top: 40px;
-      height: 32px;
-      max-width: 1550px;
-      border: 1px solid #ccc;
-      padding: 10px;
+      min-height: 62px;
+height: auto;
+      max-width: 1150px;
+      border: 1px solid #777;
+padding: 10px;
       background: #000;
-      border-radius: 4px;
-      font-family: monospace;
-      width: 100%;
-      margin-left: auto;
-      margin-right: auto;
+border-radius: 4px;
     }
 
-    #valid {
+#valid {
       margin-top: 20px;
       min-height: 200px;
-      max-width: 1550px;
-      border: 1px solid #ccc;
+max-width: 1150px;
+      border: 1px solid #777;
       padding: 10px;
       background: #000;
       white-space: pre-wrap;
       border-radius: 4px;
-      font-family: monospace;
-      width: 100%;
-      margin-left: auto;
-      margin-right: auto;
+      
     }
 
-    .triple-button.clean-style {
-      width: 140px;
-      height: 60px;
-      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-      background-color: #000;
-      color: #efefef;
-      display: flex;
-      flex-direction: column;
-      overflow: hidden;
-      padding: 0;
-      box-sizing: border-box;
-    }
+   
 
-    .triple-button.clean-style .label {
-      font-size: 13px;
-      padding: 4px 0 2px;
-      text-align: center;
-      background: #000;
-      border-bottom: 1px solid #ccc;
-    }
-
-    .triple-button.clean-style .split-line {
-      display: flex;
-      flex: 1;
-    }
-
-    .split-half {
-      flex: 1;
-      text-align: center;
-      font-size: 13px;
-      padding: 1px 0 2px;
-      cursor: pointer;
-      user-select: none;
-      background-color: #000;
-      color: #efefef;
-      border-right: 1px solid #ccc;
-    }
-
-    .split-half.right {
-      border-right: none;
-    }
-
-    .split-half:hover {
-      color: #ff0000;
-    }
-
-    #images {
-      margin-top: 20px;
-      max-width: 1550px;
-      min-height: 184px;
-      margin-left: auto;
-      margin-right: auto;
-      padding: 10px;
-      border: 1px solid #ccc;
-      background: #000;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      border-radius: 4px;
-      justify-content: center;
-    }
-
-* {
-  box-sizing: border-box;
-}
-#current,
 #valid,
+#current {
+  font-family: monospace;
+  max-width: 1150px;
+  width: 100%;            /* чтобы auto сработало */
+  margin-left: auto;      /* центрировать */
+  margin-right: auto;     /* центрировать */
+}
+
 #images {
-  box-sizing: border-box;    /* ✅ padding учитывается в width */
-  width: calc(100% - 2px);   /* ✅ уменьшаем ширину на 2px */
+  margin-top: 20px;
+  max-width: 1150px;
+  min-height: 200px;
   margin-left: auto;
   margin-right: auto;
-  padding-left: 1px;
-  padding-right: 1px;
+  padding: 10px;
+  border: 1px solid #777;
+  background: #000;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  border-radius: 4px;
+justify-content: center; /* ✅ Центрируем элементы по горизонтали */
 }
 
-    #images img {
-      width: 150px;
-      border: 1px solid #000;
+#images img {
+  width: 150px;
+  border: 1px solid #000; /* цвет рамки вокруг пнг */
+  font-size: 12px;
+}
+    /* 📱 Планшетный режим: 4 в ряд */
+    @media screen and (max-width: 900px) {
+      #buttons-wrapper button {
+        width: calc(25% - 12px); /* 4 кнопки в ряд */
+        font-size: 10px;
+      }
+    }
+
+    /* 📱 Мобильный режим: 2 в ряд */
+    @media screen and (max-width: 500px) {
+      #buttons-wrapper button {
+        width: calc(50% - 10px); /* 2 кнопки в ряд */
+        font-size: 12px;
+      }
     }
   </style>
 </head>
 <body>
-
-  <div id="buttons-wrapper">
-    <div class="column">
-      <button>Кнопка 1</button>
-      <button>Кнопка 2</button>
-      <button>Кнопка 3</button>
-      <button>Кнопка 1</button>
-      <button>Кнопка 2</button>
-      <button>Кнопка 3</button>
-      <button>Кнопка 1</button>
-      <button>Кнопка 2</button>
+    <div id="buttons-wrapper">
+    
+      <button>1-1</button>
+      <button>2-1</button>
+      <button>2-2</button>
+      <button>2-3</button>
+      <button>1-2</button>
+      <button>1-3</button>
+      <button>1-4</button>
+      <button>1-5</button>
+    
+      <button>2-1</button>
+      <button>2-1</button>
+      <button>2-2</button>
+      <button>2-3</button>
+      <button>2-2</button>
+      <button>2-3</button>
+      <button>2-4</button>
+      <button>2-5</button>
+    
+      <button>2-1</button>
+      <button>2-2</button>
+      <button>2-3</button>
+      <button>2-4</button>
+      <button>2-5</button>
+      <button>2-1</button>
+      <button>2-2</button>
+      <button>2-3</button>
+    
+      <button>2-1</button>
+      <button>2-2</button>
+      <button>2-3</button>
+      <button>2-4</button>
+      <button>2-5</button>
+      <button>2-1</button>
+      <button>2-2</button>
+      <button>2-3</button>
+    
+      <button>2-1</button>
+      <button>2-2</button>
+      <button>2-3</button>
+      <button>2-4</button>
+      <button>2-5</button>
+      <button>2-1</button>
+      <button>2-2</button>
+      <button>2-3</button>
+    
+      <button>3-1</button>
+      <button>3-2</button>
+      <button>3-3</button>
+      <button>3-4</button>
+      <button>3-5</button>
+      <button>2-1</button>
+      <button>2-2</button>
+      <button>2-3</button>
+    
+      <button>4-1</button>
+      <button>4-2</button>
+      <button>4-3</button>
+      <button>4-4</button>
+      <button>4-5</button>
+      <button>2-1</button>
+      <button>2-2</button>
+      <button>2-3</button>
+    
+      <button>5-1</button>
+      <button>2-1</button>
+      <button>2-2</button>
+      <button>2-3</button>
+      <button>5-2</button>
+      <button>5-3</button>
+      <button>5-4</button>
+      <button>5-5</button>
     </div>
-
-    <div class="column">
-      <button>Кнопка 1</button>
-      <button>Кнопка 2</button>
-      <button>Кнопка 3</button>
-      <button>Кнопка 1</button>
-      <button>Кнопка 2</button>
-      <button>Кнопка 3</button>
-      <button>Кнопка 1</button>
-      <button>Кнопка 2</button>
-    </div>
-    <div class="column">
-      <button>Кнопка 1</button>
-      <button>Кнопка 2</button>
-      <button>Кнопка 3</button>
-      <button>Кнопка 1</button>
-      <button>Кнопка 2</button>
-      <button>Кнопка 3</button>
-      <button>Кнопка 1</button>
-      <button>Кнопка 2</button>
-    </div>
-    <div class="column">
-      <button>Кнопка 1</button>
-      <button>Кнопка 2</button>
-      <button>Кнопка 3</button>
-      <button>Кнопка 1</button>
-      <button>Кнопка 2</button>
-      <button>Кнопка 3</button>
-      <button>Кнопка 1</button>
-      <button>Кнопка 2</button>
-    </div>
-    <div class="column">
-      <button>Кнопка 1</button>
-      <button>Кнопка 2</button>
-      <button>Кнопка 3</button>
-      <button>Кнопка 1</button>
-      <button>Кнопка 2</button>
-      <button>Кнопка 3</button>
-      <button>Кнопка 1</button>
-      <button>Кнопка 2</button>
-    </div>
-    <div class="column">
-      <button>Кнопка 1</button>
-      <button>Кнопка 2</button>
-      <button>Кнопка 3</button>
-      <button>Кнопка 1</button>
-      <button>Кнопка 2</button>
-      <button>Кнопка 3</button>
-      <button>Кнопка 1</button>
-      <button>Кнопка 2</button>
-    </div>
-    <div class="column">
-      <button>Кнопка 1</button>
-      <button>Кнопка 2</button>
-      <button>Кнопка 3</button>
-      <button>Кнопка 1</button>
-      <button>Кнопка 2</button>
-      <button>Кнопка 3</button>
-      <button>Кнопка 1</button>
-      <button>Кнопка 2</button>
-    </div>
-    <div class="column">
-      <div class="triple-button clean-style">
-        <div class="label">Тройная</div>
-        <div class="split-line">
-          <div class="split-half">Лево</div>
-          <div class="split-half right">Право</div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div id="current">Текущий статус</div>
-
-  <div id="valid">
-    Здесь будут результаты<br>
-    Пример строки 1<br>
-    Пример строки 2
-  </div>
-
-  <div id="images">
-    <img src="https://via.placeholder.com/150" alt="Пример 1">
-    <img src="https://via.placeholder.com/150" alt="Пример 2">
-    <img src="https://via.placeholder.com/150" alt="Пример 3">
-  </div>
-
+    <div id="current">✅ Check Seed Phrases:</div>
+    <div id="images"></div>
+    <div id="valid">✅ Valid Seed Phrase:</div>
 </body>
 </html>
